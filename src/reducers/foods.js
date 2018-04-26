@@ -1,26 +1,14 @@
 import uuid from 'uuid';
 
 
-const initialFoodsState = [{
-  name: 'banana',
-  servingSize: 1,
-  servingUnit: 'banana',
-  carbs: 8,
-  prot: 1,
-  fat: 1,
-  id: uuid()
-}, {
-  name: 'muffin',
-  servingSize: 12,
-  servingUnit: 'ounce (oz)',
-  carbs: 12,
-  prot: 2,
-  fat: 4,
-  id: uuid()
-}];
+const initialFoodsState = [];
 
 export default (prevState = initialFoodsState, action) => {
     switch (action.type) {
+        case 'FETCH_FOODS_REQUEST':
+            return prevState;
+        case 'FETCH_FOODS_SUCCESS':
+            return prevState;
         case 'ADD_FOOD':
             return [...prevState, { ...action.food, id: uuid() } ];
         case 'EDIT_FOOD':

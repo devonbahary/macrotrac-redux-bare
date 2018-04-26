@@ -40,33 +40,33 @@ class FoodForm extends React.Component {
     };
 
     onServingSizeChange = (e) => {
-        const servingSize = e.target.value;
+        const servingSize = Number(e.target.value);
         if (servingSize > 0) {
             this.setState(() => ({ servingSize }));
         }
     }
 
     onServingUnitChange = (e) => {
-        const servingUnit = e.target.value;
+        const servingUnit = Number(e.target.value);
         this.setState(() => ({ servingUnit }));
     }
 
     onCarbsChange = (e) => {
-        const carbs = e.target.value;
+        const carbs = Number(e.target.value);
         if (carbs >= 0) {
             this.setState(() => ({ carbs }));
         }
     };
 
     onProtChange = (e) => {
-        const prot = e.target.value;
+        const prot = Number(e.target.value);
         if (prot >= 0) {
             this.setState(() => ({ prot }));
         }
     };
 
     onFatChange = (e) => {
-        const fat = e.target.value;
+        const fat = Number(e.target.value);
         if (fat >= 0) {
             this.setState(() => ({ fat }));
         }

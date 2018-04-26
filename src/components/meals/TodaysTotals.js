@@ -69,36 +69,6 @@ const TodaysTotals = (props) => (
             </div>
         </div>
     </div>
-    // <div className="TodaysTotals">
-    //     <div className="TodaysTotals__row--header">
-    //         <div className="TodaysTotals__column">
-    //             Calories (cals)
-    //         </div>
-    //         <div className="TodaysTotals__column">
-    //             Carbs (g)
-    //         </div>
-    //         <div className="TodaysTotals__column">
-    //             Prot (g)
-    //         </div>
-    //         <div className="TodaysTotals__column">
-    //             Fat (g)
-    //         </div>
-    //     </div>
-    //     <div className="TodaysTotals__row">
-    //         <div className="TodaysTotals__column">
-    //             {props.cals} / {props.user.calorieGoal}
-    //         </div>
-    //         <div className="TodaysTotals__column">
-    //             {props.carbs} <span className="TodaysTotals__ratio">({props.carbsRatio + '%'} | {props.user.carbsRatioGoal + '%'})</span>
-    //         </div>
-    //         <div className="TodaysTotals__column">
-    //             {props.prot} <span className="TodaysTotals__ratio">({props.protRatio + '%'})</span>
-    //         </div>
-    //         <div className="TodaysTotals__column">
-    //             {props.fat} <span className="TodaysTotals__ratio">({props.fatRatio + '%'})</span>
-    //         </div>
-    //     </div>
-    // </div>
 );
 
 const mapStateToProps = (state) => ({

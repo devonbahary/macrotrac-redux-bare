@@ -8,12 +8,6 @@ const MealsPage = (props) => (
     <div>
         <h3>Today's Meals</h3>
         <TodaysTotals />
-        {/* <ul>
-            <li><strong>Calories</strong>: {props.meals.reduce((accum, food) => accum + food.carbs * 4 + food.prot * 4 + food.fat * 9, 0)}</li>
-            <li>Carbs: {props.meals.reduce((accum, food) => accum + food.carbs, 0)}</li>
-            <li>Prot: {props.meals.reduce((accum, food) => accum + food.prot, 0)}</li>
-            <li>Fat: {props.meals.reduce((accum, food) => accum + food.fat, 0)}</li>
-        </ul> */}
         <AddMealForm />
         {props.meals.length > 0 ? (
           <p>Found {props.meals.length} meals today:</p>
