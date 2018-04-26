@@ -9,7 +9,6 @@ export const totalCalories = (data) => {
 };
 
 export const totalCarbs = (data) => {
-    console.log(data)
     if (Array.isArray(data)) {
         return parseFloat((data.length > 0 ? data.reduce((accum, meal) => accum + meal.carbs, 0) : 0).toFixed(1));
     } else {

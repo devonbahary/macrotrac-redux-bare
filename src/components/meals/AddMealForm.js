@@ -67,7 +67,7 @@ class AddMealForm extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  foods: state.foods
+  foods: state.foods.items
 });
 
 export default connect(mapStateToProps)(AddMealForm);

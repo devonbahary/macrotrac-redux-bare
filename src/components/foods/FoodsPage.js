@@ -1,19 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import FoodsNotification from './FoodsNotification';
 
 const FoodsPage = (props) => (
     <div>
         <h3>Your Foods</h3>
-        {props.foods.length > 0 ? (
-          <p>Found {props.foods.length} foods:</p>
-        ) : (
-          <p>No foods found.</p>
-        )}
+        <FoodsNotification />
         <ul>
             {props.foods.map(food => (
-              <li key={food.id}>
-                  <Link to={`/foods/edit/${food.id}`}>{food.name}</Link> ({food.servingSize} {food.servingUnit})
+              <li key={food._id}>
+                  <Link to={`/foods/edit/${food._id}`}>{food.name}</Link> ({food.servingSize} {food.servingUnit})
                   <ul>
                       <li>Carbs: {food.carbs}</li>
                       <li>Prot: {food.prot}</li>
@@ -26,7 +23,7 @@ const FoodsPage = (props) => (
 );
 
 const mapStateToProps = (state) => ({
-  foods: state.foods
+  foods: state.foods.items
 });
 
 export default connect(mapStateToProps)(FoodsPage);
