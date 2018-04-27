@@ -11,14 +11,10 @@ export default (prevState = initialFoodsState, action) => {
         case 'FETCH_FOODS':
             items = localStorage.getItem('foods');
             return {
-              items: items ? JSON.parse(items) : []
+              items: items ? JSON.parse(items) : prevState.items
             };
         case 'ADD_FOOD':
-            const food = {
-              ...action.food,
-              id: uuid()
-            };
-            items = [ ...prevState.items, food ];
+            items = [ ...prevState.items, { ...action.food, id: uuid() } ];
             localStorage.setItem('foods', JSON.stringify(items));
             return {
               items

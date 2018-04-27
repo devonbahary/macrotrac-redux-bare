@@ -1,4 +1,9 @@
 
+// FETCH_MEALS
+export const fetchMeals = () => ({
+  type: 'FETCH_MEALS'
+});
+
 // ADD_MEAL
 export const addMeal = (meal) => ({
   type: 'ADD_MEAL',

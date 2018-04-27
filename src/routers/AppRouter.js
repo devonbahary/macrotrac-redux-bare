@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { fetchFoods } from '../actions/foods';
+import { fetchMeals } from '../actions/meals';
 import { fetchUser } from '../actions/user';
 import Header from '../components/Header';
 import HomePage from '../components/HomePage';
@@ -15,6 +16,7 @@ import UserPage from '../components/user/UserPage';
 class AppRouter extends React.Component {
     componentWillMount() {
         this.props.dispatch(fetchFoods());
+        this.props.dispatch(fetchMeals());
         this.props.dispatch(fetchUser());
     }
 
