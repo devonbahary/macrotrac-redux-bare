@@ -70,4 +70,5 @@ const mapStateToProps = (state) => ({
   foods: state.foods.items
 });
 
+
 export default connect(mapStateToProps)(AddMealForm);

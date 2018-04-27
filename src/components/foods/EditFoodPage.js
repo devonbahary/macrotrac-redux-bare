@@ -5,7 +5,7 @@ import FoodForm from './FoodForm';
 
 const EditFoodPage = (props) => {
     const onSubmit = (food) => {
-        props.dispatch(editFood(props.food._id, food));
+        props.dispatch(editFood(props.food.id, food));
         props.history.push('/foods');
     };
 
@@ -24,7 +24,7 @@ const EditFoodPage = (props) => {
 };
 
 const mapStateToProps = (state, props) => ({
-  food: state.foods.items.find(food => props.match.params._id === food._id)
+  food: state.foods.items.find(food => props.match.params.id === food.id)
 });
 
 export default connect(mapStateToProps)(EditFoodPage);

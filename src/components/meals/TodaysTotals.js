@@ -62,7 +62,7 @@ const TodaysTotals = (props) => (
                 Fat
             </div>
             <div className="TodaysTotals__column">
-                 {props.fatRatio}% ({props.carbs}g)
+                 {props.fatRatio}% ({props.fat}g)
             </div>
             <div className="TodaysTotals__column">
                 {props.user.fatRatioGoal}%

@@ -2,85 +2,38 @@ import uuid from 'uuid';
 
 
 const initialFoodsState = {
-  items: [],
-  isFetching: false,
-  failedLoad: false,
-  isAdding: false,
-  failedAdd: false,
-  isEditing: false,
-  failedEdit: false,
-  isRemoving: false,
-  failedRemove: false
+  items: []
 };
 
 export default (prevState = initialFoodsState, action) => {
+    let items;
     switch (action.type) {
-        case 'FETCH_FOODS_REQUEST':
+        case 'FETCH_FOODS':
+            items = localStorage.getItem('foods');
             return {
-              ...prevState,
-              isFetching: true
+              items: items ? JSON.parse(items) : []
             };
-        case 'FETCH_FOODS_SUCCESS':
-            return {
-              items: action.foods,
-              isFetching: false
+        case 'ADD_FOOD':
+            const food = {
+              ...action.food,
+              id: uuid()
             };
-        case 'FETCH_FOODS_FAILURE':
+            items = [ ...prevState.items, food ];
+            localStorage.setItem('foods', JSON.stringify(items));
             return {
-              ...prevState,
-              isFetching: false,
-              failedLoad: true
+              items
             };
-        case 'ADD_FOOD_REQUEST':
+        case 'EDIT_FOOD':
+            items = prevState.items.map(food => food.id === action.id ? { ...food, ...action.updates } : food);
+            localStorage.setItem('foods', JSON.stringify(items));
             return {
-              ...prevState,
-              isAdding: true
+              items
             };
-        case 'ADD_FOOD_SUCCESS':
+        case 'REMOVE_FOOD':
+            items = prevState.items.filter(food => food.id !== action.id);
+            localStorage.setItem('foods', JSON.stringify(items));
             return {
-              ...prevState,
-              isAdding: false,
-              items: [ ...prevState.items, action.food ]
-            };
-        case 'ADD_FOOD_FAILURE':
-            return {
-              ...prevState,
-              isAdding: false,
-              failedAdd: true
-            }
-        case 'EDIT_FOOD_REQUEST':
-            return {
-              ...prevState,
-              isEditing: true
-            };
-        case 'EDIT_FOOD_SUCCESS':
-            return {
-              ...prevState,
-              isEditing: false,
-              items: prevState.items.map(food => food._id === action._id ? { ...food, ...action.updates }: food)
-            };
-        case 'EDIT_FOOD_FAILURE':
-            return {
-              ...prevState,
-              isEditing: false,
-              failedEdit: true
-            };
-        case 'REMOVE_FOOD_REQUEST':
-            return {
-              ...prevState,
-              isRemoving: true
-            };
-        case 'REMOVE_FOOD_SUCCESS':
-            return {
-              ...prevState,
-              isRemoving: false,
-              items: prevState.items.filter(food => food._id !== action._id)
-            };
-        case 'REMOVE_FOOD_FAILURE':
-            return {
-              ...prevState,
-              isRemoving: false,
-              failedRemove: true
+              items
             };
         default:
             return prevState;

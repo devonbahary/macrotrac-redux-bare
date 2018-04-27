@@ -9,8 +9,8 @@ const FoodsPage = (props) => (
         <FoodsNotification />
         <ul>
             {props.foods.map(food => (
-              <li key={food._id}>
-                  <Link to={`/foods/edit/${food._id}`}>{food.name}</Link> ({food.servingSize} {food.servingUnit})
+              <li key={food.id}>
+                  <Link to={`/foods/edit/${food.id}`}>{food.name}</Link> ({food.servingSize} {food.servingUnit})
                   <ul>
                       <li>Carbs: {food.carbs}</li>
                       <li>Prot: {food.prot}</li>

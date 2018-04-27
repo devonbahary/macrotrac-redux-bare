@@ -5,7 +5,7 @@ import FoodForm from './FoodForm';
 
 const AddFoodPage = (props) => {
     const onSubmit = (food) => {
-        props.dispatch(addFood(food)).then((res) => console.log('res'));
+        props.dispatch(addFood(food));
         props.history.push('/foods');
     };
 
